@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title widget-title">归档</h3>
+    </div>
+    <div class="panel-body">
+        <div class="widget widget-archives">
+            <ul>
+                {% for date in date_list %}
+                    <li>
+                        <a href="{% url 'blog:archive' date.year date.month %}">{{ date.year }}年{{ date.month }}月</a>
+                    </li>
+                {% empty %}
+                    暂无归档
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

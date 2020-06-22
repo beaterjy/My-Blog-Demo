@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title widget-title">标签云</h3>
+    </div>
+    <div class="panel-body">
+        <div class="widget widget-tag-cloud">
+            <ul>
+                {% for tag in tag_list %}
+                    <li>
+                        <a href="{% url 'blog:tag' tag.pk %}">{{ tag.name }}</a>
+                    </li>
+                {% empty %}
+                    暂无标签
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
