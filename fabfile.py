@@ -25,7 +25,7 @@ def deploy(c):
 
     # 先停止应用
     with c.cd(supervisor_conf_path):
-        cmd = 'supervisorctl stop {}'.format(supervisor_program_name)
+        cmd = '~/anaconda3/bin/supervisorctl -c ~/etc/supervisord.conf stop {}'.format(supervisor_program_name)
         c.run(cmd)
 
     # 进入项目根目录，从git拉去最新代码
@@ -42,6 +42,5 @@ def deploy(c):
 
     # 重新启动应用
     with c.cd(supervisor_conf_path):
-        cmd = 'supervisorctl start {}'.format(supervisor_program_name)
+        cmd = 'supervisorctl -c ~/etc/supervisord.conf start {}'.format(supervisor_program_name)
         c.run(cmd)
-        
